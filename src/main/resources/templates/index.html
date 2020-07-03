@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>community</title>
+
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <script src="./js/npm.js"></script>
+</head>
+<body>
+<div class="all">
+    <!-- 导航栏  栅格100%-->
+    <!-- 总体导航样式 -->
+    <div class="top-nav">
+        <!-- 导航宽度 -->
+        <div class="container top-nav-sty">
+            <!-- 搜索框 -->
+            <div class="top-search hidden-xs hidden-sm">
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </div>
+            <!-- 发现、分享、文章、活动、下载 -->
+            <div class="top-title">
+                <ul class="top-ul hidden-xs">
+                    <li><a href="javascript:;"><i class="fa fa-th-list"></i>&nbsp发现</a></li>
+                    <li><a href="javascript:;"><i class="fa fa-share"></i>&nbsp分享</a></li>
+                    <li><a href="javascript:;"><i class="fa fa-book"></i>&nbsp文章</a></li>
+                    <li><a href="javascript:;"><i class="fa fa-users"></i>&nbsp活动</a></li>
+                    <li><a href="javascript:;"><i class="fa fa-download"></i>&nbsp下载</a></li>
+
+                </ul>
+            </div>
+            <!-- 留言 -->
+            <div class="top-login">
+                <button class="btn btn-primary top-btn" data-target="#myModal" data-toggle="modal">留言</button>
+
+                <!-- 模态框（Modal） -->
+                <div class="modal fade top-model" id="myModal" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    留个言吧~
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">名称</span>
+                                    <input type="text" id="userName" class="form-control">
+                                    <span class="input-group-addon">内容</span>
+                                    <input type="text" id="userSpeak" class="form-control">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <button type="submit" class="btn btn-primary" id="addSpeak">提交</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 内容区总 -->
+    <div class="content">
+
+        <!-- 左侧区 -->
+        <div class="cont-left-article">
+            <!-- 小导航 -->
+            <div class="cont-nav">
+                <p>内容</p>
+            </div>
+            <!-- 内容列表 -->
+            <div class="cont-list">
+
+                <!-- 内容 -->
+                <div class="cont-comm">
+                    <div class="cont-img">
+                        <img src="./img/2.png" class="img-rounded" width="60px" height="60px">
+                    </div>
+                    <div class="cont-article-title">
+                        <a href="javascript:;" target="_black">关于MySQL索引问题的解决</a>
+                        <ul>
+                            <li>chncat</li>
+                            <li>日期：2020-06-20</li>
+                            <li>12个评论</li>
+                            <li>43次浏览</li>
+                            <li>12点赞</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="cont-list">
+                <!-- 内容 -->
+                <div class="cont-comm">
+                    <div class="cont-img">
+                        <img src="./img/1.png" class="img-rounded" width="60px" height="60px">
+                    </div>
+                    <div class="cont-article-title">
+                        <a href="javascript:;" target="_black">Oracle结构中关于SAG理解与优化问题--dba职业素养养成--YouToBeOracle</a>
+                        <ul>
+                            <li>hanfanger</li>
+                            <li>日期：2020-06-10</li>
+                            <li>12个评论</li>
+                            <li>43次浏览</li>
+                            <li>12点赞</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 右侧留言区 -->
+        <div class="cont-right-speak" id="speaks">
+            <!-- 小导航 -->
+            <div class="cont-right-nav">
+                <p>留言</p>
+            </div>
+            <!-- 留言列表 -->
+            <div class="speak-area-list">
+                <!-- 内容 -->
+                <div class="speak-comm">
+                    <span>李云龙&nbsp:&nbsp</span>
+                    <p>还可以</p>
+                </div>
+            </div>
+            <div class="speak-area-list" id="speak-list">
+                <!-- 内容 -->
+                <div class="speak-comm">
+                    <span>王大锤&nbsp:&nbsp</span>
+                    <p>66666</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+<script>
+    var addSpeak = document.getElementById("addSpeak");
+    addSpeak.onclick = function(){
+        // 获取用户名和内容
+        var userName = document.getElementById("userName").value;
+        var userSpeak = document.getElementById("userSpeak").value;
+        // 创建元素
+        var divm = document.createElement("div");
+        // 添加classname
+        divm.className = 'speak-area-list';
+        // 需要添加的内容
+        divm.innerHTML = "<div class="+ "speak-comm" +">" +
+            "<span>" + userName + '&nbsp:&nbsp' + "</span>" +
+            "<p>" + userSpeak + "</p>" +
+            "</div>"
+        // 获取父类并拼接孩子元素
+        document.querySelector(".cont-right-speak").appendChild(divm);
+    }
+
+</script>
+</html>
